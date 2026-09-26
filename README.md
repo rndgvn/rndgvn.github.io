@@ -1,2 +1,3 @@
-# RND.github.io
-Personal website featuring my portfolio, resume, and blog, built with HTML, CSS, and JavaScript
+# rndgvn.github.io
+
+Personal website — portfolio, skills, and study timeline. Built with HTML and CSS.
