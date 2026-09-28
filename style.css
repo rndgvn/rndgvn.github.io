@@ -2,8 +2,8 @@
 :root {
   --bg:       #0a0a0a;
   --fg:       #f2f0ea;
-  --dim:      #7a7873;
-  --line:     #232320;
+  --dim:      #a3a19b;
+  --line:     rgba(242, 240, 234, .12);
   --accent:   #c9a15a;
   --display:  "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --mono:     "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -20,9 +20,24 @@ html { background: var(--bg); }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: transparent;
   color: var(--fg);
   font: 1rem/1.75 var(--mono);
+}
+
+/* cursor-reactive gradient (js/gradient.js); the CSS gradient is the fallback */
+#bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 55% at 28% 22%, #1d1d1d 0%, transparent 70%),
+    radial-gradient(55% 50% at 78% 78%, #171717 0%, transparent 70%),
+    var(--bg);
 }
 
 .nav, main, .footer {
@@ -56,7 +71,9 @@ h3 { font-size: 1rem; color: var(--dim); font-weight: 500; letter-spacing: 0; }
 img { max-width: 100%; height: auto; display: block; }
 
 pre {
-  background: #111110;
+  background: rgba(10, 10, 10, .55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.1rem 1.25rem;
@@ -171,6 +188,9 @@ pre code { font-size: .85em; color: var(--fg); }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   max-width: 24rem;
+  background: rgba(10, 10, 10, .45);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   transition: border-color .25s var(--spring), transform .25s var(--spring);
 }
 .bootdev-card:hover { border-color: var(--accent); transform: translateY(-3px); }
@@ -243,7 +263,9 @@ pre code { font-size: .85em; color: var(--fg); }
   padding: 1.25rem 1.5rem;
   border-left: 2px solid var(--accent);
   border-radius: 0 var(--radius) var(--radius) 0;
-  background: #111110;
+  background: rgba(10, 10, 10, .55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   color: var(--dim);
 }
 .empty p { margin: 0 0 .6rem; }
